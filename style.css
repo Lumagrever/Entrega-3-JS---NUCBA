@@ -12,7 +12,7 @@
     --rojo: #F00814;
     --celeste: #51d1f6;
     --dorado: gold;
-    --coral: coral;
+    --coral: rgb(202, 58, 14);
   }
 
   html {
@@ -108,8 +108,7 @@ body{
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    width: 550px;
-    gap: 1rem;
+    gap: 0.5rem;
 }
 
 .pizzas-lists li {
@@ -119,12 +118,34 @@ body{
     font-weight: bold;
     font-size: 1.5rem;
     display: flex;
-    align-items: center;
+    flex-direction: column;
     justify-content: space-between;
+    align-items: center;
     width: 100%;
     padding: 0.8rem 0.5rem;
     border-radius: 20px 0px;
     user-select: none;
+    width: 725px;
+    height: auto;
+}
+
+.pizzas-lists h2 {
+ font-size: 2.5rem;
+ color: var(--coral);
+}
+
+.pizzas-lists h3 {
+    font-size: 2rem;
+}
+
+.pizzas-lists h4 {
+    font-size: 1.6rem;
+    color: var(--coral);
+}
+
+.pizzas-lists h5 {
+    font-size: 1.5rem;
+    text-align: center;
 }
 
 .li-error h2{

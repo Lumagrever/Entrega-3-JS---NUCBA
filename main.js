@@ -5,71 +5,72 @@ const pizzas_variety = [
     {
         nombre: "Super Muzarella",
         id: 1,
-        ingredientes: [`queso muzzarella`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`, `salsa de tomate`],
         aceitunas: true,
         precio: 850,
+        img: ""
     },
     {
         nombre: "Super Primavera",
         id: 2,
-        ingredientes: [`queso muzzarella`,`jamón`, `tomate`, `huevo`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`rucula`, `tomate`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
     
     },
     {
-        nombre: "Super Americana",
+        nombre: "Super Toscana",
         id: 3,
-        ingredientes: [`queso cheddar`,`bacon`,`huevo frito`, `salsa barbacoa`],
+        ingredientes: [`Muzzarella`,`jamón crudo`,`rucula`, `salsa de tomate` ],
         aceitunas: false,
         precio: 1000,
     },
     {
-        nombre: "Super Rúcula",
+        nombre: "Super Salamin",
         id: 4,
-        ingredientes: [`queso muzzarella`,`rúcula`, `aceite de oliva`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`salamin`, `aceitunas`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
     },
     {
-        nombre: "Super Morrón",
+        nombre: "Super Mexicana",
         id: 5,
-        ingredientes: [`queso muzzarella`,`morrón rojo`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`salchicha`, `salamin picante`, `maíz`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
     },
     {
         nombre: "Super Cuatro Quesos",
         id: 6,
-        ingredientes: [`queso muzzarella`,`queso gorgonzola`, `queso fontina`, `queso parmesano`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`queso gorgonzola`, `queso fontina`, `queso parmesano`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
     },
     {
-        nombre: "Super Napolitana",
+        nombre: "Super Romana",
         id: 7,
-        ingredientes: [`queso muzzarella`,`tomate`, `huevo duro trozado`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`jamón`, `aceitunas`, `champiñones`, `salsa de tomate`],
         aceitunas: false,
         precio: 1000,
     },
     {
-        nombre: "Super Especial",
+        nombre: "Super Jamón",
         id: 8,
-        ingredientes: [`queso muzzarella`,`jamón`, `huevo duro trozado`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`jamón`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
     },
     {
-        nombre: "Super Palmitos",
+        nombre: "Super Pollo",
         id: 9,
-        ingredientes: [`queso muzzarella`,`palmitos`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`pollo`, `aceitunas`, `morrón`, `champiñones`, `salsa de tomate` ],
         aceitunas: true,
         precio: 1000,
     },
     {
-        nombre: "Super Ananá",
+        nombre: "Super Picante",
         id: 10,
-        ingredientes: [`queso muzzarella`,`ananá`, `salsa de tomate con orégano`],
+        ingredientes: [`Muzzarella`,`salamin picante`, `pimientos picantes`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
     }
@@ -93,7 +94,8 @@ const saveLocalStorage = (pizzasList) => {  //Esto sirve para "guardar en LocalS
 
 const thisPizza = (pizzasLista) => 
 ` 
-<li> <h2>${pizzasLista.nombre}</h2> <h3>$${pizzasLista.precio}</h3 data-id=${pizzasLista.pizzaId}>
+<li> <h2>${pizzasLista.nombre}</h2> <h3>Precio: $${pizzasLista.precio}</h3 data-id=${pizzasLista.pizzaId}>
+    <h4>Ingredientes: <h4> <h5> ${pizzasLista.ingredientes} </h5>
 </li>
 `;
 
