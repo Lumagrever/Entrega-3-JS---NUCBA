@@ -8,7 +8,7 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`, `salsa de tomate`],
         aceitunas: true,
         precio: 850,
-        img: ""
+        img: "./assets/Pizzas/Super Muzarella.png"
     },
     {
         nombre: "Super Primavera",
@@ -16,6 +16,7 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`rucula`, `tomate`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Primavera.png"
     
     },
     {
@@ -24,6 +25,7 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`jamón crudo`,`rucula`, `salsa de tomate` ],
         aceitunas: false,
         precio: 1000,
+        img: "./assets/Pizzas/Super Toscana.png"
     },
     {
         nombre: "Super Salamin",
@@ -31,6 +33,7 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`salamin`, `aceitunas`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Salamin.png"
     },
     {
         nombre: "Super Mexicana",
@@ -38,13 +41,15 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`salchicha`, `salamin picante`, `maíz`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Mexicana.png"
     },
     {
         nombre: "Super Cuatro Quesos",
         id: 6,
-        ingredientes: [`Muzzarella`,`queso gorgonzola`, `queso fontina`, `queso parmesano`, `salsa de tomate`],
+        ingredientes: [`Muzzarella`,`queso gorgonzola`, `queso fontina`, `queso parmesano`],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Cuatro Quesos.png"
     },
     {
         nombre: "Super Romana",
@@ -52,6 +57,7 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`jamón`, `aceitunas`, `champiñones`, `salsa de tomate`],
         aceitunas: false,
         precio: 1000,
+        img: "./assets/Pizzas/Super Romana.png"
     },
     {
         nombre: "Super Jamón",
@@ -59,13 +65,15 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`jamón`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Jamon.png"
     },
     {
         nombre: "Super Pollo",
         id: 9,
-        ingredientes: [`Muzzarella`,`pollo`, `aceitunas`, `morrón`, `champiñones`, `salsa de tomate` ],
+        ingredientes: [`Muzzarella`,`pollo`, `morrón`, `champiñones`, `salsa de tomate` ],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Pollo.png"
     },
     {
         nombre: "Super Picante",
@@ -73,73 +81,81 @@ const pizzas_variety = [
         ingredientes: [`Muzzarella`,`salamin picante`, `pimientos picantes`, `salsa de tomate`],
         aceitunas: true,
         precio: 1000,
+        img: "./assets/Pizzas/Super Picante.png"
     }
 ];
 
-const input = document.querySelector('.input-number-pizza') // Input number de HTML
-const searchPizza = document.querySelector('.search-pizza') // form en html
-const pizzasLists = document.querySelector('.pizzas-lists') // listas renderizadas
+const form = document.querySelector('form');
+const input = document.querySelector('.input-number-pizza'); // Input number de HTML
+const searchPizza = document.querySelector('.search-pizza'); // form en html
+const pizzasLists = document.querySelector('.pizzas-lists'); // listas renderizadas
 
-// 2- Traer elementos del LS si existen
+// Grabar en LS
 
-let pizzas = JSON.parse(localStorage.getItem('pizzas')) || []
-
-// 3- Grabar en LS
-
-const saveLocalStorage = (pizzasList) => {  //Esto sirve para "guardar en LocalStorage"
-    localStorage.setItem ('pizzas', JSON.stringify(pizzasList))  // Esto sirve para "guardar en LocalStorage"
+const saveLocalStorage = (pizzas_variety) => {  //Esto sirve para "guardar en LocalStorage"
+    localStorage.setItem ('pizzas', JSON.stringify(pizzas_variety))  // Esto sirve para "guardar en LocalStorage"
 }
 
-// 4-  Crear y Renderizar las pizzas y errores Crear el elemento a renderizar 
+//  Crear y Renderizar las pizzas y errores
 
-const thisPizza = (pizzasLista) => 
-` 
-<li> <h2>${pizzasLista.nombre}</h2> <h3>Precio: $${pizzasLista.precio}</h3 data-id=${pizzasLista.pizzaId}>
-    <h4>Ingredientes: <h4> <h5> ${pizzasLista.ingredientes} </h5>
-</li>
-`;
-
-const renderPizzasList = renderPizzas => pizzasLists.innerHTML += renderPizzas.map(pizza => thisPizza(pizza)).join('')
+const thisPizza = (pizzasLista) => {
+if(!pizzasLista) {
+    pizzasLists.innerHTML = 
+    `<li class="li-error" style="border: solid red;"> 
+        <h2>Aún no tenemos esa pizza</h2>
+    </li>`;
+} else { 
+    pizzasLists.innerHTML = 
+    `<li> 
+        <h2>${pizzasLista.nombre}</h2> 
+        <h3>Precio: $${pizzasLista.precio}</h3 data-id=${pizzasLista.pizzaId}>
+        <h4>Ingredientes: </h4> 
+        <h5> ${pizzasLista.ingredientes.join(", ")} </h5>
+        <div id="pizzas">
+            <img src="${pizzasLista.img}" alt="Pizza de ${pizzasLista.nombre}">
+        </div>
+    </li>`;
+}}
 
 
 const renderErrorNumber = () => {
-    return `
+    pizzasLists.innerHTML = `
     <li class="li-error" style="border: solid red;"> <h2>Aún no tenemos esa pizza</h2>
     </li>
     `
 }
 
-const crearRenderErrorNumber = () => pizzasLists.innerHTML += renderErrorNumber();
-
 const renderErrorId = () => {
-    return `
+    pizzasLists.innerHTML = `
     <li class="li-error" style="border: solid red;"> <h2>Coloca un número del 1 al 10</h2>
     </li>
     `
 }
 
-const crearRenderErrorId = () => pizzasLists.innerHTML += renderErrorId();
+// Formulario para agregar pizzas
 
-// 7- Formulario para agregar tareas
+const pizzaSearch = (value) => pizzas_variety.find((pizza) => pizza.id === value);
 
 const showPizza = event => {
     event.preventDefault();                     
 
-    const idPizza = input.value;        
-    let pizzaEncontrada = pizzas_variety.filter(pizza => pizza.id == idPizza);
-    if(pizzaEncontrada[0] != undefined) {
-        renderPizzasList(pizzaEncontrada)
-    } else if (idPizza) {
-        crearRenderErrorNumber()
-    } else {
-        crearRenderErrorId()
-    }       
+    const idPizza = input.value;
+    console.log(idPizza)        
+    if(!idPizza) {
+        renderErrorId();
+        return
+    }
+    const pizzaSearched = pizzaSearch(Number(idPizza));
+    thisPizza(pizzaSearched);
+    saveLocalStorage(pizzaSearched);
+    form.reset()
 }
 
 const init = () => {
-    saveLocalStorage(pizzas_variety)
+    let pizzasSaved = JSON.parse(localStorage.getItem('pizzas')) || [] //Traer elementos del LS si existen
+    if(pizzasSaved){
+        thisPizza(pizzasSaved)
+    }
     searchPizza.addEventListener('submit', showPizza);
-    pizzasLists.addEventListener('click', removePizza);
-    hideDeleteAll(pizzas);
 }
  init()

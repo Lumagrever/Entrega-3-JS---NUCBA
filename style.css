@@ -126,7 +126,7 @@ body{
     border-radius: 20px 0px;
     user-select: none;
     width: 725px;
-    height: auto;
+    height: 500px, auto;
 }
 
 .pizzas-lists h2 {
@@ -140,7 +140,7 @@ body{
 
 .pizzas-lists h4 {
     font-size: 1.6rem;
-    color: var(--coral);
+    color: var(--coral);  
 }
 
 .pizzas-lists h5 {
@@ -148,13 +148,17 @@ body{
     text-align: center;
 }
 
-.li-error h2{
-    font-size: 1.5rem;
+#pizzas img {
+    width: 400px;
 }
 
-.pizzas-lists img:hover {
-    transition: 300ms;
-    background-color: var(--rojo);
+#pizzas img:hover {
+    transform: scale(1.1);
+    transition: ease-in
+}
+
+.li-error h2{
+    font-size: 1.5rem;
 }
 
 .footer-container p {
@@ -168,6 +172,14 @@ body{
 
 .footer-container b:hover {
     color: var(--dorado);
+}
+
+@media (max-width: 768px){
+    .pizzas-lists li {
+        width: 100%;
+        width: 725px, auto;
+    }
+
 }
 
 @media (max-width: 576px) {
@@ -210,7 +222,6 @@ body{
         width: 1.1rem;
     }
 
-    
     .pizzas-lists {
         margin-top: 30px;
         width: 320px;
@@ -220,9 +231,26 @@ body{
         font-size: 1rem;
         width: 100%;
     }
-    
-    .pizzas-lists img {
-        width: 30px;
+
+
+    .pizzas-lists h2 {
+        font-size: 1.5rem;
+    }
+       
+    .pizzas-lists h3 {
+        font-size: 1.3rem;
+    }
+       
+    .pizzas-lists h4 {
+        font-size: 1.3rem;  
+    }
+       
+    .pizzas-lists h5 {
+        font-size: 1rem;
+    }
+
+    #pizzas img {
+        width: 280px;
     }
 
     .li-error h2{
