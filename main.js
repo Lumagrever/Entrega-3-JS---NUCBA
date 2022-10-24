@@ -110,7 +110,7 @@ if(!pizzasLista) {
         <h2>${pizzasLista.nombre}</h2> 
         <h3>Precio: $${pizzasLista.precio}</h3 data-id=${pizzasLista.pizzaId}>
         <h4>Ingredientes: </h4> 
-        <h5> ${pizzasLista.ingredientes.join(", ")} </h5>
+        <h5> ${pizzasLista.ingredientes.join(", ")}</h5>
         <div id="pizzas">
             <img src="${pizzasLista.img}" alt="Pizza de ${pizzasLista.nombre}">
         </div>
@@ -135,8 +135,7 @@ const pizzaSearch = (value) => pizzas_variety.find((pizza) => pizza.id === value
 const showPizza = event => {
     event.preventDefault();                     
 
-    const idPizza = input.value;
-    console.log(idPizza)        
+    const idPizza = input.value;       
     if(!idPizza) {
         renderErrorId();
         return
