@@ -119,17 +119,13 @@ if(!pizzasLista) {
 
 
 const renderErrorNumber = () => {
-    pizzasLists.innerHTML = `
-    <li class="li-error" style="border: solid red;"> <h2>Aún no tenemos esa pizza</h2>
-    </li>
-    `
+    pizzasLists.innerHTML = 
+    `<li class="li-error" style="border: solid red;"> <h2>Aún no tenemos esa pizza</h2> </li>`
 }
 
 const renderErrorId = () => {
-    pizzasLists.innerHTML = `
-    <li class="li-error" style="border: solid red;"> <h2>Coloca un número del 1 al 10</h2>
-    </li>
-    `
+    pizzasLists.innerHTML = 
+    `<li class="li-error" style="border: solid red;"> <h2>Coloca un número del 1 al 10</h2> </li>`
 }
 
 // Formulario para agregar pizzas
