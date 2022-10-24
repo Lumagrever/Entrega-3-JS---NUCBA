@@ -115,6 +115,7 @@ if(!pizzasLista) {
             <img src="${pizzasLista.img}" alt="Pizza de ${pizzasLista.nombre}">
         </div>
     </li>`;
+    console.log(pizzasLista);
 }}
 
 
