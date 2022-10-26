@@ -96,19 +96,28 @@ const saveLocalStorage = (pizzas_variety) => {  //Esto sirve para "guardar en Lo
     localStorage.setItem ('pizzas', JSON.stringify(pizzas_variety))  // Esto sirve para "guardar en LocalStorage"
 }
 
+
 //  Crear y Renderizar las pizzas y errores
 
 const thisPizza = (pizzasLista) => { // Hago un nuevo if, si id es undefined escribi del 1 al 10 -ARRIBA DEL IF ACTUAL - IF IF ELSE
-if(!pizzasLista) {
+
+/*if (pizzasLista = undefined) { 
         pizzasLists.innerHTML = 
+        `<li class="li-error" style="border: solid red;"> <h2>Coloca un número del 1 al 10</h2> </li>`
+    
+    }*/
+
+if (!pizzasLista) {
+        /*pizzasLists.innerHTML = 
         `<li class="li-error" style="border: solid red;"> 
         <h2>Aún no tenemos esa pizza</h2>
-        </li>`;
+        </li>`;*/
+        return renderErrorNumber();
 } else {                                
         pizzasLists.innerHTML = 
     `<li> 
         <h2>${pizzasLista.nombre}</h2> 
-        <h3>Precio: $${pizzasLista.precio}</h3 data-id=${pizzasLista.pizzaId}>
+        <h3>Precio: $${pizzasLista.precio}</h3>
         <h4>Ingredientes: </h4> 
         <h5> ${pizzasLista.ingredientes}</h5>
         <div id="pizzas">
@@ -148,10 +157,11 @@ const showPizza = event => {
 }
 
 const init = () => {
-    let pizzasSaved = JSON.parse(localStorage.getItem('pizzas')) || [] //Traer elementos del LS si existen
+    searchPizza.addEventListener('submit', showPizza);
+    let pizzasSaved = JSON.parse(localStorage.getItem('pizzas')) || []; //Traer elementos del LS si existen
     if(pizzasSaved){
         thisPizza(pizzasSaved)
     }
-    searchPizza.addEventListener('submit', showPizza);
+
 }
  init()
