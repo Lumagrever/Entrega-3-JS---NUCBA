@@ -101,12 +101,6 @@ const saveLocalStorage = (pizzas_variety) => {  //Esto sirve para "guardar en Lo
 
 const thisPizza = (pizzasLista) => { // Hago un nuevo if, si id es undefined escribi del 1 al 10 -ARRIBA DEL IF ACTUAL - IF IF ELSE
 
-/*if (pizzasLista = undefined) { 
-        pizzasLists.innerHTML = 
-        `<li class="li-error" style="border: solid red;"> <h2>Coloca un número del 1 al 10</h2> </li>`
-    
-    }*/
-
 if (!pizzasLista) {
         /*pizzasLists.innerHTML = 
         `<li class="li-error" style="border: solid red;"> 
