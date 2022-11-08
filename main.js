@@ -99,13 +99,9 @@ const saveLocalStorage = (pizzas_variety) => {  //Esto sirve para "guardar en Lo
 
 //  Crear y Renderizar las pizzas y errores
 
-const thisPizza = (pizzasLista) => { // Hago un nuevo if, si id es undefined escribi del 1 al 10 -ARRIBA DEL IF ACTUAL - IF IF ELSE
+const thisPizza = (pizzasLista) => { 
 
 if (!pizzasLista) {
-        /*pizzasLists.innerHTML = 
-        `<li class="li-error" style="border: solid red;"> 
-        <h2>Aún no tenemos esa pizza</h2>
-        </li>`;*/
         return renderErrorNumber();
 } else {                                
         pizzasLists.innerHTML = 
@@ -152,7 +148,7 @@ const showPizza = event => {
 
 const init = () => {
     searchPizza.addEventListener('submit', showPizza);
-    let pizzasSaved = JSON.parse(localStorage.getItem('pizzas')) || []; //Traer elementos del LS si existen
+    let pizzasSaved = JSON.parse(localStorage.getItem('pizzas')); //Traer elementos del LS si existen
     if(pizzasSaved){
         thisPizza(pizzasSaved)
     }
